@@ -18,11 +18,11 @@
       <a href="#" class="logo">Beki's Portfolio</a>
       <i class="bx bx-menu" id="menu-icon"></i>
       <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">ABOUT</a>
-        <a href="#services">SERVICES</a>
-        <a href="#portfolio">PORTFOLIO</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#home" class="active" onclick="playSound()">Home</a>
+        <a href="#about" onclick="playSound()">ABOUT</a>
+        <a href="#services" onclick="playSound()">SERVICES</a>
+        <a href="#portfolio" onclick="playSound()">PORTFOLIO</a>
+        <a href="#contact" onclick="playSound()">CONTACT</a>
       </nav>
     </header>
     <section class="home" id="home">
@@ -42,7 +42,7 @@
             ><i class="bx bxl-linkedin-square"></i
           ></a>
         </div>
-        <a href="#contact" class="btn">Contact Me</a>
+        <a href="#contact" class="btn" onclick="playSound2()">Contact Me</a>
       </div>
       <div class="home-img">
         <div class="containerp">
@@ -54,6 +54,7 @@
               background-repeat: no-repeat;
               background-size: contain;
             "
+            onmouseover="playSound1()"
           >
             <div class="logop">
               <span class="circle circle1"></span>
@@ -269,7 +270,7 @@
             your needs. Trust our expertise to elevate your online presence with
             sleek UI/UX design and optimized performance
           </p>
-          <a href="#home" class="btn">Read More</a>
+          <a href="#home" class="btn" onclick="playSound2()">Read More</a>
         </div>
 
         <div class="services-box">
@@ -280,7 +281,7 @@
             our expertise to create engaging interfaces that resonate with your
             audience.
           </p>
-          <a href="#home" class="btn">Read More</a>
+          <a href="#home" class="btn" onclick="playSound2()">Read More</a>
         </div>
 
         <div class="services-box">
@@ -291,7 +292,7 @@
             Native. Trust our expertise to deliver sleek, high-performance apps
             tailored to your needs.
           </p>
-          <a href="#home" class="btn">Read More</a>
+          <a href="#home" class="btn" onclick="playSound2()">Read More</a>
         </div>
       </div>
     </section>
@@ -486,7 +487,12 @@
           placeholder="Your Message"
           required
         ></textarea>
-        <input type="submit" value="Send Message" class="btn" />
+        <input
+          type="submit"
+          value="Send Message"
+          class="btn"
+          onclick="playSound2()"
+        />
       </form>
       <span id="msg"></span>
     </section>
@@ -496,7 +502,9 @@
         <p>Copyright &copy; 2024 Beki | All Rights Reserved.</p>
       </div>
       <div class="footer-iconTop">
-        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+        <a href="#home" onclick="playSound1()">
+          <i class="bx bx-up-arrow-alt"></i
+        ></a>
       </div>
     </footer>
 
@@ -522,6 +530,58 @@
           })
           .catch((error) => console.error("Error!", error.message));
       });
+    </script>
+
+    <audio id="myAudio">
+      <source src="/rocket.wav" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="myAudio1">
+      <source src="/logo.wav" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="myAudio2">
+      <source src="/Click.wav" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
+    <script>
+      function playSound() {
+        var myAudio = document.getElementById("myAudio");
+        if (myAudio) {
+          myAudio
+            .play()
+            .then(() => console.log("Audio playback started"))
+            .catch((error) => console.error("Error playing audio: ", error));
+        } else {
+          console.error("Audio element not found");
+        }
+      }
+
+      function playSound1() {
+        var myAudio = document.getElementById("myAudio1");
+        if (myAudio) {
+          myAudio
+            .play()
+            .then(() => console.log("Audio playback started"))
+            .catch((error) => console.error("Error playing audio: ", error));
+        } else {
+          console.error("Audio element not found");
+        }
+      }
+
+      function playSound2() {
+        var myAudio = document.getElementById("myAudio2");
+        if (myAudio) {
+          myAudio
+            .play()
+            .then(() => console.log("Audio playback started"))
+            .catch((error) => console.error("Error playing audio: ", error));
+        } else {
+          console.error("Audio element not found");
+        }
+      }
     </script>
   </body>
 </html>

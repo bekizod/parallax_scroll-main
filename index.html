@@ -51,6 +51,10 @@
       Your browser does not support the audio element.
     </audio>
 
+    <audio id="scrollSound">
+      <source src="/transition.wav" type="audio/wav" />
+      Your browser does not support the audio element.
+    </audio>
     <script>
       function playSound() {
         var myAudio = document.getElementById("myAudio");
@@ -63,6 +67,26 @@
           console.error("Audio element not found");
         }
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var scrollSound = document.getElementById("scrollSound");
+        var isPlaying = false;
+
+        window.addEventListener("scroll", function () {
+          // Check if the user has scrolled down (not necessary but can be used for more complex conditions)
+          if (window.scrollY > 0) {
+            if (!isPlaying) {
+              scrollSound.play();
+              isPlaying = true;
+            }
+          } else {
+            // Optional: Stop the sound when scrolling back to the top
+            scrollSound.pause();
+            scrollSound.currentTime = 0; // Reset sound to beginning
+            isPlaying = false;
+          }
+        });
+      });
     </script>
   </body>
 </html>
