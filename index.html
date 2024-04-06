@@ -38,6 +38,7 @@
         <a
           href="/main/index.html"
           style="text-decoration: none; color: aliceblue; font-weight: bolder"
+          onclick="playSound()"
           >Explore More</a
         >
       </button>
@@ -45,15 +46,22 @@
     <script src="app1.js"></script>
 
     <audio id="myAudio">
-      <source src="path_to_your_sound_file.mp3" type="audio/mpeg">
+      <source src="/rocket.wav" type="audio/wav" />
       Your browser does not support the audio element.
-  </audio>
+    </audio>
 
-  <script>
+    <script>
       function playSound() {
-          var myAudio = document.getElementById('myAudio');
-          myAudio.play();
+        var myAudio = document.getElementById("myAudio");
+        if (myAudio) {
+          myAudio
+            .play()
+            .then(() => console.log("Audio playback started"))
+            .catch((error) => console.error("Error playing audio: ", error));
+        } else {
+          console.error("Audio element not found");
+        }
       }
-  </script>
+    </script>
   </body>
 </html>
